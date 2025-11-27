@@ -74,8 +74,16 @@ public class ButacaView extends Controlador{
         HBox btnForm = new HBox(25, btnAceptar, btnRetroceder);
         btnForm.setAlignment(Pos.CENTER);
         
+        btnAceptar.setOnAction(e -> {
+            if(butacaSeleccionada!=null){
+                abrirVentana(stage, new CompraView(stage, sala, butacaSeleccionada, clienteID).getRoot(), "Cine: Realizar compra", 420, 550);
+            }else{
+                abrirAviso("Advertencia", "Tenes que seleccionar una butaca.");
+            }
+        });
         
-        btnAceptar.setOnAction(e -> abrirVentana(stage, new CompraView(stage, sala, butacaSeleccionada, clienteID).getRoot(), "Cine: Realizar compra", 420, 550));
+        
+        
         btnRetroceder.setOnAction(e -> abrirVentana(stage, new PeliculaView(stage, clienteID).getRoot(), "Cine: Seleccionar pelicula", 800, 550));
         root.getChildren().addAll(pelicula, salaSeleccionada, titulo, grid, btnForm);
        

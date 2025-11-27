@@ -62,7 +62,16 @@ public class PeliculaView extends Controlador{
         btnPeliDos.setOnAction(e -> peliculaSeleccionada = "Harry Potter");
         btnPeliTres.setOnAction(e -> peliculaSeleccionada = "Sobreviviente");
         
-        btnAceptar.setOnAction(e -> abrirVentana(stage, new SalaView(stage, peliculaSeleccionada, clienteID).getRoot(), "Cine: Seleccionar sala", 500, 400));
+        btnAceptar.setOnAction(e -> {
+            if(peliculaSeleccionada != null){
+                abrirVentana(stage, new SalaView(stage, peliculaSeleccionada, clienteID).getRoot(), "Cine: Seleccionar sala", 500, 400);
+            }else{
+                abrirAviso("Advertencia", "Tenes que seleccionar una pelicula.");
+            }
+        });
+        
+        
+        
         btnCancelar.setOnAction(e -> abrirVentana(stage, new MainMenu(stage).getRoot(), "Cine", 400, 400));
         
         root.getChildren().addAll(titulo, contenedor, btnForm);

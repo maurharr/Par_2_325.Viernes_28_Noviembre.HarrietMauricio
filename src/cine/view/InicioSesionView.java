@@ -57,14 +57,14 @@ public class InicioSesionView extends Controlador{
                     clienteID = CineData.clientesArray.get(i);
                     correoCheck = true;
                     break;
-                }    
+                }
             }
+   
+            if(!contraseña.isEmpty() && !correo.isEmpty() && !correoCheck){
+                 abrirAviso("Advertencia", "El correo ingresado no existe.");
+                 return;
+             }  
             
-            if(!correoCheck){
-                abrirAviso("Advertencia", "El correo ingresado no existe.");
-                return;
-            }
-
             if(!contraseña.isEmpty()){
                 if(clienteID.getContraseña().equals(contraseña)){
                     contraseñaCheck = true;

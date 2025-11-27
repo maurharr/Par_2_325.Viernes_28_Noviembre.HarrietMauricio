@@ -72,7 +72,14 @@ public class SalaView extends Controlador{
             }
         });
 
-        btnAceptar.setOnAction(e -> abrirVentana(stage, new ButacaView(stage, salaEncontrada, clienteID).getRoot(), "Cine: Seleccionar butaca", 800, 600));
+        btnAceptar.setOnAction(e -> {
+            if(tipo != null){
+                abrirVentana(stage, new ButacaView(stage, salaEncontrada, clienteID).getRoot(), "Cine: Seleccionar butaca", 800, 600);
+            }else{
+                abrirAviso("Advertencia", "Tenes que seleccionar una sala.");
+            }
+        });        
+         
         btnRetroceder.setOnAction(e -> abrirVentana(stage, new PeliculaView(stage, clienteID).getRoot(), "Cine: Seleccionar pelicula", 800, 550));
         
         root.getChildren().addAll(pelicula, titulo, contenedor, btnForm);
