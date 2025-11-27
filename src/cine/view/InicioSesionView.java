@@ -1,8 +1,8 @@
 package cine.view;
 
 import cine.controller.Controlador;
-import cine.model.CineData;
 import cine.model.Cliente;
+import cine.persistence.PersistenciaJava;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -52,9 +52,9 @@ public class InicioSesionView extends Controlador{
             
 
             
-            for (int i = 0; i < CineData.clientesArray.size(); i++){
-                if(CineData.clientesArray.get(i).getEmail().equals(correo)){
-                    clienteID = CineData.clientesArray.get(i);
+            for (int i = 0; i < PersistenciaJava.clientesArray.size(); i++){
+                if(PersistenciaJava.clientesArray.get(i).getEmail().equals(correo)){
+                    clienteID = PersistenciaJava.clientesArray.get(i);
                     correoCheck = true;
                     break;
                 }

@@ -1,9 +1,9 @@
 package cine.view;
 
 import cine.controller.Controlador;
-import cine.model.CineData;
 import cine.model.Cliente;
 import cine.model.Sala;
+import cine.persistence.PersistenciaJava;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -55,18 +55,18 @@ public class SalaView extends Controlador{
         
         btn2D.setOnAction(e -> {
             tipo = "2D";
-            for(int i = 0; i < CineData.salasArray.size(); i++){
-                if(CineData.salasArray.get(i).getNombre().equals(peliculaSeleccionada) && tipo.equals(CineData.salasArray.get(i).getTipo())){
-                    salaEncontrada = CineData.salasArray.get(i);
+            for(int i = 0; i < PersistenciaJava.salasArray.size(); i++){
+                if(PersistenciaJava.salasArray.get(i).getNombre().equals(peliculaSeleccionada) && tipo.equals(PersistenciaJava.salasArray.get(i).getTipo())){
+                    salaEncontrada = PersistenciaJava.salasArray.get(i);
                     break;
                 }
             }
         });
         btn3D.setOnAction(e -> {
             tipo = "3D";
-            for(int i = 0; i < CineData.salasArray.size(); i++){
-                if(CineData.salasArray.get(i).getNombre().equals(peliculaSeleccionada) && tipo.equals(CineData.salasArray.get(i).getTipo())){
-                    salaEncontrada = CineData.salasArray.get(i);
+            for(int i = 0; i < PersistenciaJava.salasArray.size(); i++){
+                if(PersistenciaJava.salasArray.get(i).getNombre().equals(peliculaSeleccionada) && tipo.equals(PersistenciaJava.salasArray.get(i).getTipo())){
+                    salaEncontrada = PersistenciaJava.salasArray.get(i);
                     break;
                 }
             }

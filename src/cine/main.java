@@ -4,7 +4,7 @@ import cine.view.MainMenu;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import cine.model.CineData;
+import cine.persistence.PersistenciaJava;
 import javafx.scene.image.Image;
 
 public class main extends Application {
@@ -14,7 +14,7 @@ public class main extends Application {
     
     @Override
     public void start(Stage stage) throws Exception{
-        CineData.cargarDatos();
+        PersistenciaJava.cargarDatos();
         
         MainMenu menu = new MainMenu(stage);
         Scene scene = new Scene(menu.getRoot(), 400, 400);

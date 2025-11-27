@@ -2,10 +2,10 @@ package cine.view;
 
 import cine.controller.Controlador;
 import cine.model.Butaca;
-import cine.model.CineData;
 import cine.model.Cliente;
 import cine.model.Entrada;
 import cine.model.Sala;
+import cine.persistence.PersistenciaJava;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -52,9 +52,8 @@ public class CompraView extends Controlador{
         btnForm.setAlignment(Pos.CENTER);
       
         btnComprar.setOnAction(e -> {
-            CineData.entradasArray.add(new Entrada(clienteID, butaca, sala));
-            CineData.guardarEntradas();
-            CineData.guardarSalas();
+            PersistenciaJava.entradasArray.add(new Entrada(clienteID, butaca, sala));
+            PersistenciaJava.guardarDatos();
             abrirVentana(stage, new EntradaView(stage, sala, butaca).getRoot(), "Cine: Compra finalizada", 420, 550);
         });
         btnCancelar.setOnAction(e -> abrirVentana(stage, new PeliculaView(stage, clienteID).getRoot(), "Cine: Seleccionar pelicula", 800, 550));

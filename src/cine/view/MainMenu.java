@@ -1,8 +1,8 @@
 package cine.view;
 
 import cine.controller.Controlador;
-import cine.model.CineData;
 import cine.model.Cliente;
+import cine.persistence.PersistenciaJava;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -60,7 +60,7 @@ public class MainMenu extends Controlador{
                 abrirAviso("Advertencia", "Tenes que llenar todos los campos.");
             }
             if(!nombre.isEmpty()){
-                for (Cliente c : CineData.clientesArray){
+                for (Cliente c : PersistenciaJava.clientesArray){
                     if(c.getNombre().equals(nombre)){
                         abrirAviso("Advertencia", "El nombre de usuario ya está en uso.");
                         nombreExiste = true;
@@ -68,7 +68,7 @@ public class MainMenu extends Controlador{
                 }
             }
             if(!mail.isEmpty()){
-                for (Cliente c : CineData.clientesArray){
+                for (Cliente c : PersistenciaJava.clientesArray){
                     if(c.getEmail().equals(mail)){
                         abrirAviso("Advertencia", "El email ya está en uso.");
                         emailExiste = true;
@@ -80,8 +80,8 @@ public class MainMenu extends Controlador{
             }
             Cliente ID;
             if(!nombreExiste && !emailExiste && contraseñaIngresada){
-                CineData.clientesArray.add(ID = new Cliente(nombre, mail, password));
-                CineData.guardarClientes();
+                PersistenciaJava.clientesArray.add(ID = new Cliente(nombre, mail, password));
+                PersistenciaJava.guardarDatos();
                 abrirVentana(stage, new PeliculaView(stage, ID).getRoot(), "Cine: Seleccionar pelicula", 800, 500);
             }
         });
