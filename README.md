@@ -1,3 +1,2 @@
-# Segundo Parcial de Programación 2
-## Alumno: Mauricio Gabriel Harriet Thery
-## Comisión: 325
+# SEGUNDO PARCIAL DE PROGRAMACIÓN 2 - MAURICIO HARRIET
+![](src/cine/images/cine.png)
